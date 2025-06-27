@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>MH² Hádanka</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2em;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fefaf3;
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .title {
+      font-size: 2.5em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+      flex-wrap: wrap;
+      z-index: 10;
+      position: relative;
+    }
+
+    .subtitle {
+      margin-top: 1em;
+      font-size: 1.2em;
+      color: #555;
+      z-index: 10;
+      position: relative;
+    }
+
+    .heart-button {
+      margin-top: 2em;
+      font-size: 1.2em;
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      z-index: 10;
+      position: relative;
+    }
+
+    .heart-button:hover {
+      background-color: #ff1a4d;
+    }
+
+    .flying-butterfly {
+      position: absolute;
+      top: 20%;
+      left: -100px;
+      width: 70px;
+      z-index: 1;
+      pointer-events: none;
+      animation: flyAcross 18s linear infinite;
+    }
+
+    @keyframes flyAcross {
+      0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateX(50vw) translateY(-20px) rotate(5deg);
+      }
+      100% {
+        transform: translateX(110vw) translateY(30px) rotate(-10deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="motyl.gif" alt="Lietajúci motýľ" class="flying-butterfly">
+
+  <div class="title">
+    MH<sup>2</sup> Hádanka / Riddle
+  </div>
+
+  <div class="subtitle">
+    3 indície = 3 slová<br>
+    Odpovedz do 59 sekúnd
+  </div>
+
+  <button class="heart-button" onclick="window.location.href='mh2_riddle.html'">
+    Start
+  </button>
+
+</body>
+</html>
