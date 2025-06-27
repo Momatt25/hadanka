@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>MH² Hádanka</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2em;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fefaf3;
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .riddle-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 1.5em;
+    }
+
+    .riddle-header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    .riddle-butterfly {
+      width: 70px;
+      height: auto;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 2em;
+    }
+
+    .heart-button {
+      font-size: 1.2em;
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .heart-button:hover {
+      background-color: #ff1a4d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="riddle-header">
+    <img src="bflz_clear.gif" alt="Motýľ" class="riddle-butterfly">
+    <h1>MH<sup>2</sup> Hádanka / Riddle</h1>
+  </div>
+
+  <div class="subtitle">
+    3 indície = 3 slová<br>
+    Odpovedz do 59 sekúnd
+  </div>
+
+  <button class="heart-button" onclick="window.location.href='mh2_riddle.html'">
+    Start
+  </button>
+
+</body>
+</html>
