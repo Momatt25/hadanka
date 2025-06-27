@@ -48,13 +48,26 @@
         <p>Keď vietor spieva v holých korunách, a dych sa mení na paru v dlaniach,</p>
         <p>vtedy sa zjaví — nie v jari, nie v sne, ale s prvou bielou perinou, keď všetko stíchne.</p>
     </div>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd23D04DZnZwturqNKkZf8VxEbSyK-UZSpkRL70MTURiZujWw/viewform?embedded=true" 
-            width="640" height="480">Loading…</iframe>
+   
     <div class="qr-container">
         <p>Tip: Tu je vizuálna nápoveda</p>
         <img src="stork_qr_code.png" alt="QR kód k nápovede">
     </div>
+form id="answerForm">
+  <label for="answer">Tvoja odpoveď:</label><br>
+  <input type="text" id="answer" name="answer" required style="width: 100%; padding: 10px; font-size: 16px;"><br><br>
+  <button type="submit">Odoslať</button>
+</form>
 
+<script>
+  document.getElementById("answerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const answer = document.getElementById("answer").value;
+
+    // Tu môžeš použiť EmailJS, zapísať do Google Sheets, alebo poslať do Firebase
+    alert("Odpoveď odoslaná: " + answer);
+  });
+</script>
     <script>
         const texts = {
             sk: [...document.querySelectorAll('#riddle-text p')].map(p => p.innerText),
