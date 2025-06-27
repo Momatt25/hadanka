@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>MH^2 Riddle</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 2em;
+            background-color: #f0f4f8;
+            color: #333;
+            text-align: center;
+        }
+        h1 { margin-bottom: 1em; }
+        #language-toggle {
+            margin-bottom: 1.5em;
+        }
+        #language-toggle button {
+            padding: 12px 20px;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 8px;
+            border: none;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+        }
+        #language-toggle button:hover {
+            background-color: #666;
+        }
+        @media (max-width: 600px) {
+            #language-toggle button {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+        .qr-container {
+            margin-top: 2em;
+        }
+        .qr-container img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MH^2 Riddle</h1>
+
+    <div id="language-toggle">
+        <button onclick="changeLanguage('sk')">SK</button>
+        <button onclick="changeLanguage('en')">EN</button>
+        <button onclick="changeLanguage('cz')">CZ</button>
+        <button onclick="changeLanguage('de')">DE</button>
+    </div>
+
+    <div id="riddle-text">
+        <p>V čase, keď desiaty list odpadne z kalendára, sa sladko pridá hlas, čo nepatrí žiadnemu z nás.</p>
+        <p>Otázka teda znie:</p>
+        <p><strong>Kto príde s chladom, no prinesie teplo?</strong></p>
+        <p><strong>Kto neprichádza dverami, a predsa zmení celý dom?</strong></p>
+        <p>Nie s tieňom, no s krídlami, nevolá, no každý vie, že prichádza Ciconia ciconia.</p>
+        <p>Keď vietor spieva v holých korunách, a dych sa mení na paru v dlaniach,</p>
+        <p>vtedy sa zjaví — nie v lete, nie v sne, ale s prvou bielou perinou, keď všetko stíchne.</p>
+    </div>
+
+    <form action="https://script.google.com/macros/s/AKfycbyMaZa4mNtQ_CWw4chDEcx8XNAges8gMgaFmBDYgbmXHECZoPC0KEWzDMFUFbGN_JZSyA/exec"
+          method="POST" style="margin-top: 2em;">
+        <input type="text" name="odpoved" placeholder="Tvoja odpoveď" required
+               style="padding: 10px; font-size: 16px; width: 80%; max-width: 400px;"><br><br>
+        <button type="submit" style="padding: 10px 20px; font-size: 16px;">Odoslať</button>
+    </form>
+
+    <div class="qr-container">
+        <p>Tip: Tu je vizuálna nápoveda</p>
+        <img src="stork_qr_code.png" alt="QR kód k nápovede">
+    </div>
+
+    <script>
+        const texts = {
+            sk: [
+                "V čase, keď desiaty list odpadne z kalendára, sa sladko pridá hlas, čo nepatrí žiadnemu z nás.",
+                "Otázka teda znie:",
+                "<strong>Kto príde s chladom, no prinesie teplo?</strong>",
+                "<strong>Kto neprichádza dverami, a predsa zmení celý dom?</strong>",
+                "Nie s tieňom, no s krídlami, nevolá, no každý vie, že prichádza Ciconia ciconia.",
+                "Keď vietor spieva v holých korunách, a dych sa mení na paru v dlaniach,",
+                "vtedy sa zjaví — nie v lete, nie v sne, ale s prvou bielou perinou, keď všetko stíchne."
+            ],
+            en: [
+                "When the tenth leaf falls from the calendar, a gentle voice joins in, belonging to none of us.",
+                "So the question is:",
+                "<strong>Who comes with cold, but brings warmth?</strong>",
+                "<strong>Who doesn’t come through the door, yet changes the whole house?</strong>",
+                "Not with a shadow, but with wings, silent, yet everyone knows it’s coming — Ciconia ciconia.",
+                "When the wind sings through bare branches, and breath turns to mist in your hands,",
+                "That’s when it appears — not in summer, not in dreams, but with the first white blanket, when all falls silent."
+            ],
+            cz: [
+                "Když desátý list spadne z kalendáře, sladce se přidá hlas, který nepatří nikomu z nás.",
+                "Otázka tedy zní:",
+                "<strong>Kdo přichází s chladem, ale přinese teplo?</strong>",
+                "<strong>Kdo nevchází dveřmi, a přesto změní celý dům?</strong>",
+                "Ne se stínem, ale s křídly, nevolá, ale každý ví, že přichází — Ciconia ciconia.",
+                "Když vítr zpívá v holých korunách, a dech se mění v páru v dlaních,",
+                "tehdy se zjeví — ne v létě, ne ve snu, ale s první bílou peřinou, když všechno utichne."
+            ],
+            de: [
+                "Wenn das zehnte Blatt vom Kalender fällt, gesellt sich süß eine Stimme dazu, die keinem von uns gehört.",
+                "Die Frage lautet also:",
+                "<strong>Wer kommt mit Kälte, bringt aber Wärme?</strong>",
+                "<strong>Wer kommt nicht durch die Tür, verändert aber das ganze Haus?</strong>",
+                "Nicht mit einem Schatten, sondern mit Flügeln, er ruft nicht, doch jeder weiß, dass er kommt — Ciconia ciconia.",
+                "Wenn der Wind in kahlen Kronen singt und der Atem zu Dampf in den Händen wird,",
+                "dann erscheint es – nicht im Sommer, nicht im Traum, sondern mit der ersten weißen Decke, wenn alles schweigt."
+            ]
+        };
+
+        function changeLanguage(lang) {
+            const container = document.getElementById('riddle-text');
+            container.innerHTML = texts[lang].map(line => `<p>${line}</p>`).join('');
+        }
+    </script>
+</body>
+</html>
