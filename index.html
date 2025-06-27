@@ -33,15 +33,36 @@
         @media (max-width: 600px) {
             #language-toggle button {
                 width: 100%;
-                font-size: 18px;
+                font-size: 20px;
             }
         }
-        .qr-container {
-            margin-top: 2em;
-        }
-        .qr-container img {
-            width: 150px;
-        }
+          .qr-container {
+    text-align: center;
+    margin-top: 2em;
+  }
+
+  .qr-container img.qr {
+    width: 200px;
+    max-width: 90%;
+    margin-top: 1em;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .qr-container img.qr {
+      width: 180px;
+    }
+  }
     </style>
 </head>
 <body>
